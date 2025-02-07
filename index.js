@@ -1,1 +1,5 @@
-(function (){console.log('Hello, world!')}())
+function greetTheWorld() {
+  console.log('Hello, world!')
+}
+
+greetTheWorld();
