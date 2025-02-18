@@ -1,8 +1,8 @@
-(function (){console.log('Hello, world!')}())
+function greetTheWorld() {
+  console.log('Hello, world!')
+}
 
-
-
-
+greetTheWorld();
 
 console.log( "B" + "a" + (1 - "hello")); // 'BaNaN'
 console.log((true && 3) + "d"); // '3d'
@@ -28,3 +28,4 @@ console.log(new String('foo')=='foo') // true
 console.log(new String('foo')==='foo') // false
 
 //PR?
+//PR!
