@@ -1,0 +1,91 @@
+const innerObject = {};
+const middleArray = [1,2,3,innerObject ];
+const workingObject = {
+   a:middleArray 
+}
+
+Задание 1 – Создать объект workingObject всеми возможными способами; 
+Задание 2 – Скопировать объект workingObject всеми возможными способами; 
+Задание 3 – На последних страницах лекции(в аттаче) есть функция makeCounter. Создать функцию makeCounter всеми описанными и возможными способами; 
+
+Бонус Задание 1 – Написать функцию глубокого сравнения двух обьектов:
+
+const obj1 = { 
+here: { is: "on", other: "3" }, 
+object: 5
+};
+
+ const obj2 = { 
+here: { is: "on", other: "2" }, 
+object: 5
+ }; 
+
+const deepEqual = (obj1, obj2) => {}; 
+
+Бонус Задание 2 – Развернуть строку в обратном направлении при помощи методов массивов: 
+
+function reverseStr(str) { return … }
+
+Задача на замыкание 1:
+
+function createIncrement() {
+         let value = 0
+
+         function increment(){
+                  value += 1;
+                  console.log(value)
+         }
+
+         const message = `Current value is ${value}`
+
+         function log(){
+                  console.log(message)
+         }
+         
+         return [increment, log];
+}
+
+const [increment, log] = createIncrement();
+
+increment() // 1
+increment() // 2
+increment() // 3
+
+log() //"Current value is 0"        // почему не 3?
+
+Задача на замыкание 2:
+
+let group = getGroup();
+
+group[0](); // 
+group[5](); // 
+
+function getGroup() {
+  let students = [];
+  let i = 0;
+  while (i < 10) {
+    students[i] = function() {
+      console.log(i);
+    }
+    i++
+  }
+
+  return students;
+}
+
+Задача на замыкание 3:
+
+var globalVar = 'global';
+var outerVar = 'outer';
+
+function outerFunc(outerParam) {
+    function innerFunc(innerParam) {
+        console.log(globalVar, outerParam, innerParam); // guess,outer,inner
+    }
+    return innerFunc;
+}
+
+const x = outerFunc(outerVar);
+outerVar = 'outer-2';
+globalVar = 'guess';
+x('inner'); //
