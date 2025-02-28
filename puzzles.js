@@ -48,13 +48,15 @@ function F() {
 const x = {}
 
 F.prototype =  x; //что тут происходит? зачем?
+// мы заменяем стандартный прототип F на объект x. 
+// Теперь у всех объектов, создаваемых через new F(), в качестве прототипа будет x.
 
-const a = new F();
+const ab = new F();
 
-console.log(a.__proto__ === x) //?
+console.log(ab.__proto__ === x) //?
 
 // какой ответ? Почему?
-// 
+// Поэтому здесь ответ будет true
 
 const user = {
   name: 'Bob',
@@ -80,10 +82,10 @@ const user = {
   },
 };
 
-user.funcFunc()(); // ? Window
-user.funcArrow()(); // ? User
-user.arrowFunc()(); // ? Window
-user.arrowArrow()(); // ? Window
+user.funcFunc()(); // ? Window (или undefined в strict mode)
+user.funcArrow()(); // ? User 
+user.arrowFunc()(); // ? Window (или undefined в strict mode)
+user.arrowArrow()(); // ? Window (или undefined в strict mode)
 
 ///////////////////////////////////
 
